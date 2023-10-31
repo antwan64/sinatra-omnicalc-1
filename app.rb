@@ -33,7 +33,7 @@ end
 
 get("/payment/results") do
   rate = (params.fetch("user_apr").to_f)/100
-  @apr = params.fetch("user_apr").to_f.to_fs(:percentage)
+  @apr = params.fetch("user_apr").to_f.round(4).to_fs(:percentage)
   @user_years = params.fetch("user_years").to_i
   @user_pv = params.fetch("user_pv").to_f
   n = (@user_years * 12).to_f
